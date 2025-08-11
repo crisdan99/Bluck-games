@@ -2,10 +2,58 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Nombre de la página</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Red Social</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #0084ff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #006edc;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <script src="js/app.js"></script>
+    <header>
+        <h1>Mi Red Social</h1>
+        <p>Inicio</p>
+    </header>
+
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="subir.html">Subir</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="configuracion.html">Configuración</a>
+        <a href="menu.html">Menú</a>
+    </nav>
+
+    <main>
+        <h2>Publicaciones recientes</h2>
+        <p>Aquí aparecerán las publicaciones de tus amigos y recomendadas.</p>
+    </main>
 </body>
 </html>
