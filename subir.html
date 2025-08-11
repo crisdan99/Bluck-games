@@ -1,11 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Nombre de la página</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subir Juego - Mi Red Social</title>
+    <style>
+        /* (mismo estilo que antes, lo podés mantener igual) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #0084ff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #006edc;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        button {
+            margin-top: 20px;
+            background-color: #0084ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+    </style>
 </head>
 <body>
-    <script src="js/app.js"></script>
+    <header>
+        <h1>Subir Juego</h1>
+    </header>
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="subir.html">Subir</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="configuracion.html">Configuración</a>
+        <a href="menu.html">Menú</a>
+    </nav>
+    <main>
+        <form id="form-subir-juego">
+            <label for="titulo">Título del juego:</label>
+            <input type="text" id="titulo" name="titulo" required maxlength="50" />
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" maxlength="300"></textarea>
+
+            <label for="archivo">Archivo ZIP del juego:</label>
+            <input type="file" id="archivo" name="archivo" accept=".zip" required />
+
+            <button type="submit">Subir Juego</button>
+        </form>
+    </main>
+
+    <script>
+        // Simulamos si el usuario tiene perfil de desarrollador o no
+        // En producción, esto vendría del backend o sesión real
+        const tienePerfilDesarrollador = false; // Cambiá a true para probar acceso
+
+        const form = document.getElementById('form-subir-juego');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!tienePerfilDesarrollador) {
+                alert('Solo los usuarios con perfil de desarrollador pueden subir juegos. Cambia tu perfil para obtener acceso.');
+                return;
+            }
+
+            const titulo = form.titulo.value.trim();
+            const archivo = form.archivo.files[0];
+
+            if (!archivo) {
+                alert('Por favor, selecciona un archivo ZIP.');
+                return;
+            }
+
+            if (!archivo.name.endsWith('.zip')) {
+                alert('El archivo debe ser un archivo ZIP.');
+                return;
+            }
+
+            // Por ahora solo mostramos un mensaje simulado
+            alert(`Juego "${titulo}" listo para subir (función backend no implementada).`);
+            form.reset();
+        });
+    </script>
 </body>
 </html>
